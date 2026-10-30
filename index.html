@@ -3,12 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>הפיצה של טקטוק · נהריה</title>
+<title>הפיצה של טקטוק · TickTook Pizza נהריה</title>
+<meta property="og:title" content="TickTook Pizza · הפיצה של טקטוק נהריה">
+<meta property="og:description" content="פיצה טרייה וכשרה מכיכר המזרקה בנהריה. הזמנה אונליין למשלוח או איסוף.">
+<meta property="og:image" content="images/hero-pizza.webp">
 <meta name="description" content="הפיצה של טקטוק: פיצה טרייה וכשרה מכיכר המזרקה בנהריה. הזמנה אונליין למשלוח או איסוף.">
 <meta name="theme-color" content="#22160f">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src https://maps.google.com https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root{
   --coal:#22160f; --coal-2:#2c1e15; --coal-3:#3a291e; --line:rgba(246,239,227,.12);
@@ -168,6 +171,7 @@ h2{font-family:var(--serif);font-weight:900;font-size:clamp(36px,5vw,60px);line-
 .hours td:last-child{text-align:end;color:var(--cream-2)}
 .hours tr.today td{color:var(--gold);font-weight:700}
 .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:340px;background:var(--coal-2)}
+.maplink{display:flex;flex-direction:column;width:100%;height:100%;text-align:start;color:var(--cream)}.maplink svg{width:100%;flex:1;min-height:260px}.maplink span{padding:14px 18px;font-weight:500;border-top:1px solid var(--line)}
 .map iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.6) invert(.9) hue-rotate(180deg) contrast(.9)}
 .contact{display:flex;flex-direction:column;gap:12px;margin-top:22px}
 .contact a{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:17px}
@@ -176,6 +180,8 @@ h2{font-family:var(--serif);font-weight:900;font-size:clamp(36px,5vw,60px);line-
 footer{border-top:1px solid var(--line);padding:46px 0 120px;color:var(--muted);font-size:14px;position:relative;z-index:2}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--cream-2)}
+footer small{display:block;margin-top:8px;font-size:12.5px}
+.disclaimer{color:var(--muted);font-size:13px;margin-top:-30px;margin-bottom:10px}
 
 /* overlay + sheet */
 .ov{position:fixed;inset:0;background:rgba(8,6,5,.66);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:90;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -349,9 +355,9 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
 
 <header class="hdr">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="הפיצה של טקטוק, לראש העמוד">
+    <a class="logo" href="#top" aria-label="הפיצה של טקטוק, TickTook Pizza, לראש העמוד">
       <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#e8a33d"/><circle cx="20" cy="20" r="14.5" fill="#d7362b"/><circle cx="20" cy="20" r="12" fill="#f3d27a"/><path d="M20 20V10M20 20l6 4" stroke="#141110" stroke-width="2.6" stroke-linecap="round"/><circle cx="20" cy="20" r="2.2" fill="#141110"/></svg>
-      <div><b>טקטוק</b><small>PIZZA · NAHARIYA</small></div>
+      <div><b>טקטוק</b><small>TickTook Pizza · Nahariya</small></div>
     </a>
     <nav class="nav" aria-label="ניווט ראשי">
       <a href="#menu">תפריט</a><a href="#build">בנו פיצה</a><a href="#story">הסיפור</a><a href="#visit">שעות ומיקום</a>
@@ -371,7 +377,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
     <div>
       <span class="eyebrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>כיכר המזרקה, נהריה</span>
       <h1>טיק. טוק.<br><em>פיצה.</em></h1>
-      <p class="lead">פיצה טרייה וכשרה, בצק רך וקרום קריספי, מהתנור שלנו בכיכר המזרקה ישר אליכם הביתה בכ-30 דקות.</p>
+      <p class="lead">פיצה טרייה וכשרה, בצק רך וקצה קריספי, מהתנור שלנו בכיכר המזרקה ישר אליכם הביתה בכ-30 דקות.</p>
       <div class="ctas">
         <a class="btn btn-red" href="#menu">להזמנה עכשיו
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
@@ -387,7 +393,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
       <svg class="dial" viewBox="0 0 400 400">
         <defs><path id="circ" d="M200,200 m-188,0 a188,188 0 1,1 376,0 a188,188 0 1,1 -376,0"/></defs>
         <g id="ticks"></g>
-        <text><textPath href="#circ">TICK · TOCK · PIZZA · NAHARIYA · FRESH · KOSHER · TICK · TOCK · PIZZA · NAHARIYA · FRESH · KOSHER ·</textPath></text>
+        <text><textPath href="#circ">TICKTOOK PIZZA · NAHARIYA · FRESH · KOSHER · TICKTOOK PIZZA · NAHARIYA · FRESH · KOSHER ·</textPath></text>
       </svg>
       <div class="hero-pizza" id="heroPizza"></div>
       <div class="hand" id="hand"></div>
@@ -405,13 +411,14 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
   </div>
   <div class="tabs"><div class="wrap" id="tabs" role="tablist"></div></div>
   <div class="wrap" id="cats"></div>
+  <p class="wrap disclaimer">התמונות להמחשה בלבד. המחירים, התפריט והמבצעים עשויים להשתנות ללא הודעה מוקדמת. ט.ל.ח.</p>
 </section>
 
 <section class="sec story" id="story">
   <div class="wrap">
     <div class="reveal">
       <h2>פיצה שכונתית,<br>בדיוק של שעון.</h2>
-      <p>בכיכר המזרקה בנהריה, מהבוקר ועד הלילה, אנחנו מכינים פיצה כמו שאוהבים בבית: בצק טרי שתופח כל יום, רוטב עגבניות, הרבה מוצרלה וקרום שמתפצפץ בביס.</p>
+      <p>בכיכר המזרקה בנהריה, מהבוקר ועד הלילה, אנחנו מכינים פיצה כמו שאוהבים בבית: בצק טרי שתופח כל יום, רוטב עגבניות, הרבה מוצרלה וקצה שמתפצפץ בביס.</p>
       <p>לצד הפיצות יש מאפים חמים מהתנור, ובראשם הזיוה שהלקוחות שלנו לא מפסיקים לדבר עליה. הכל כשר בד״ץ, הכל חלבי, והכל מגיע אליכם חם.</p>
     </div>
     <div class="story-side reveal">
@@ -448,11 +455,11 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
         <b style="font-size:18px">שעות פתיחה</b>
         <table class="hours" id="hours"></table>
         <div class="contact">
-          <a href="tel:049996061"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>04-9996061</a>
+          <a href="tel:+97249996061"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>04-9996061</a>
           <a href="https://maps.google.com/?q=סחלב+1+נהריה" target="_blank" rel="noopener"><span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>סחלב 1, נהריה · ניווט</a>
         </div>
       </div>
-      <div class="map"><iframe title="מפה: סחלב 1 נהריה" loading="lazy" src="https://maps.google.com/maps?q=32.99453,35.091935&z=17&output=embed"></iframe></div>
+      <div class="map" id="map"><button class="maplink" id="mapLoad" type="button"><svg viewBox="0 0 400 260" aria-hidden="true"><rect width="400" height="260" fill="#2c1e15"/><g stroke="#3a291e" stroke-width="14" fill="none"><path d="M-10 80h420M-10 190h420M90 -10v280M290 -10v280"/></g><circle cx="200" cy="130" r="58" fill="none" stroke="#e8a33d" stroke-width="2" stroke-dasharray="4 6"/><circle cx="200" cy="130" r="20" fill="#d7362b"/><circle cx="200" cy="130" r="7" fill="#f6efe3"/></svg><span>הצגת מפה (נטענת מ-Google Maps)</span></button></div>
     </div>
   </div>
 </section>
@@ -460,8 +467,8 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
 
 <footer>
   <div class="wrap">
-    <div>© <span id="yr"></span> הפיצה של טקטוק, סחלב 1, נהריה. כשר בד״ץ.</div>
-    <div style="display:flex;gap:18px"><a href="#privacy" data-legal="privacy">מדיניות פרטיות</a><a href="#accessibility" data-legal="a11y">הצהרת נגישות</a><a href="tel:049996061">04-9996061</a></div>
+    <div>© <span id="yr"></span> הפיצה של טקטוק · TickTook Pizza, סחלב 1, נהריה. כשר בד״ץ.<br><small>התמונות להמחשה בלבד. המחירים והתפריט עשויים להשתנות. זמני המשלוח משוערים. ט.ל.ח.</small></div>
+    <div style="display:flex;gap:18px"><a href="#privacy" data-legal="privacy">מדיניות פרטיות</a><a href="#accessibility" data-legal="a11y">הצהרת נגישות</a><a href="tel:+97249996061">04-9996061</a></div>
   </div>
 </footer>
 
@@ -497,7 +504,8 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
 /* ===== CONFIG: everything the pizzeria may want to change ===== */
 const CONFIG = {
   demo: false,                       // true = גרסת הדגמה: באנר עליון, ההזמנה לא נשלחת לשום מקום
-  whatsapp: "972539366732",          // מספר הוואטסאפ שאליו נשלחות ההזמנות (לעדכן למספר של הפיצריה)
+  whatsapp: "",                      // מספר הוואטסאפ של הפיצריה בפורמט 9725XXXXXXXX. ריק = הלקוח מתבקש להתקשר לאישור
+  phoneIntl: "+97249996061",
   phone: "04-9996061",
   businessName: "הפיצה של טקטוק",            // שם העסק המשפטי (לעדכן לפי הרישום)
   privacyEmail: "privacy@pizzataktook.co.il", // כתובת לפניות פרטיות (לעדכן)
@@ -520,7 +528,7 @@ const SIZES = {p:{name:"אישית",sub:"קוטר 28 ס״מ"}, f:{name:"משפח
 
 const MENU = [
   {cat:"pizza",title:"פיצות",sub:"הבסיס שלנו: רוטב עגבניות ומוצרלה על בצק טרי. מוסיפים תוספות על כל המגש או על חצי.", items:[
-    {id:"margherita",name:"מרגריטה",desc:"רוטב עגבניות ביתי, הרבה מוצרלה וקרום זהוב. הקלאסיקה שהכל מתחיל ממנה.",prices:{p:36,f:57},base:[],pizza:true,tag:"הכי נמכרת"},
+    {id:"margherita",name:"מרגריטה",desc:"רוטב עגבניות ביתי, הרבה מוצרלה וקצה זהוב. הקלאסיקה שהכל מתחיל ממנה.",prices:{p:36,f:57},base:[],pizza:true,tag:"הכי נמכרת"},
     {id:"custom",name:"בנו פיצה משלכם",desc:"מתחילים ממרגריטה ומרכיבים מגש בדיוק לטעם שלכם, עם 10 תוספות לבחירה.",prices:{p:36,f:57},base:[],pizza:true,builder:true}
   ]},
   {cat:"special",title:"פיצות ספיישל",sub:"השילובים של הבית, במגש משפחתי. אפשר להוסיף עליהן תוספות.", items:[
@@ -552,6 +560,7 @@ const MENU = [
 ];
 const ALL = MENU.flatMap(c=>c.items.map(i=>({...i,cat:c.cat})));
 const byId = id => ALL.find(i=>i.id===id);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const ils = n => "₪" + (Math.round(n*100)/100).toLocaleString("he-IL");
 
 /* ===== Pizza illustration engine ===== */
@@ -643,7 +652,11 @@ function media(item, k){
 
 /* ===== State ===== */
 let cart = [];
-try{cart = JSON.parse(localStorage.getItem("tt_cart")||"[]")}catch(e){}
+try{
+  const raw = JSON.parse(localStorage.getItem("tt_cart")||"[]");
+  // keep only well-formed lines for items that exist on the menu
+  cart = Array.isArray(raw) ? raw.filter(l => l && byId(l.id) && Number.isFinite(l.unit) && Number.isInteger(l.qty) && l.qty>0 && l.qty<100 && Array.isArray(l.mods)) : [];
+}catch(e){ cart=[]; }
 const save=()=>{try{localStorage.setItem("tt_cart",JSON.stringify(cart))}catch(e){}};
 const $=s=>document.querySelector(s);
 
@@ -737,7 +750,7 @@ function renderSheet(){
   }
   if(it.flavors){ h+=`<div class="lbl">טעם</div><select id="flavor">${it.flavors.map(f=>`<option ${f===cur.flavor?'selected':''}>${f}</option>`).join("")}</select>`; }
   if(it.egg){ h+=`<label class="chk"><input type="checkbox" id="egg" ${cur.egg?'checked':''}> להוסיף ביצה קשה (ללא תוספת תשלום)</label>`; }
-  h+=`<div class="lbl">הערות למטבח</div><textarea id="note" rows="2" placeholder="למשל: רוטב בצד, חתוך ל-12 משולשים">${cur.note}</textarea><div style="height:20px"></div>`;
+  h+=`<div class="lbl">הערות למטבח</div><textarea id="note" rows="2" placeholder="למשל: רוטב בצד, חתוך ל-12 משולשים" maxlength="200">${esc(cur.note)}</textarea><div style="height:20px"></div>`;
   $("#shBody").innerHTML=h; updAdd();
 }
 const TOP_IMG={gol:"green-olives",bol:"black-olives",hot:"hot-pepper",bel:"hamosh-pepper",tom:"tomatoes",corn:"corn",oni:"red-onion",swp:"sweet-potato",tuna:"tuna",bul:"bulgarian"};
@@ -795,7 +808,7 @@ function renderCart(){
   }
   const ups=["garlic-sticks","big","can"].filter(id=>!cart.some(l=>l.id===id)).map(byId);
   $("#drBody").innerHTML = cart.map(l=>`<div class="li"><div class="th">${thumb(l)}</div>
-    <div><h5>${l.name}</h5><div class="md">${l.mods.join(" · ")}</div></div>
+    <div><h5>${esc(l.name)}</h5><div class="md">${l.mods.map(esc).join(" · ")}</div></div>
     <div class="rt"><b>${ils(l.unit*l.qty)}</b><div class="mini-qty"><button data-dec="${l.key}" aria-label="הפחת">−</button><span>${l.qty}</span><button data-inc="${l.key}" aria-label="הוסף">+</button></div></div></div>`).join("")
     + (ups.length?`<div class="upsell"><h6>להשלמת הארוחה</h6><div class="ups">${ups.map(u=>`<button class="up" data-open="${u.id}">${u.name} <b>${ils(u.price)}</b></button>`).join("")}</div></div>`:"");
   const left=Math.max(0,CONFIG.minOrder-sub);
@@ -823,13 +836,13 @@ function renderCo(){
     h+=`<div class="seg"><button data-mode="delivery" class="${co.mode==='delivery'?'on':''}"><b>משלוח</b><span>כ-30 דקות · ${ils(CONFIG.deliveryFee)}</span></button><button data-mode="pickup" class="${co.mode==='pickup'?'on':''}"><b>איסוף עצמי</b><span>סחלב 1, כיכר המזרקה</span></button></div>`;
     if(co.mode==="delivery") h+=`<div class="fld" style="margin-top:16px"><label for="area">יישוב</label><select id="area">${CONFIG.areas.map(a=>`<option value="${a.id}" ${a.id===co.area?'selected':''}>${a.name}</option>`).join("")}</select></div>`;
     h+=`<div class="lbl">מתי?</div><div class="seg"><button data-when="asap" class="${co.when==='asap'?'on':''}"><b>כמה שיותר מהר</b><span>${co.mode==='delivery'?'כ-30 דקות':'מוכן תוך כ-20 דקות'}</span></button><button data-when="later" class="${co.when==='later'?'on':''}"><b>לשעה מסוימת</b><span>היום</span></button></div>
-      ${co.when==="later"?`<div class="fld" style="margin-top:12px"><label for="time">שעה</label><input id="time" type="time" value="${co.time}"></div>`:""}
+      ${co.when==="later"?`<div class="fld" style="margin-top:12px"><label for="time">שעה</label><input id="time" type="time" value="${esc(co.time)}"></div>`:""}
       <p class="err" id="err"></p><button class="btn btn-red" style="width:100%;margin-top:18px" data-next>המשך</button>`;
   }
   if(s===2){
-    h+=`<div class="f2"><div class="fld"><label for="cn">שם מלא</label><input id="cn" autocomplete="name" value="${co.name}"></div><div class="fld"><label for="cp">טלפון</label><input id="cp" type="tel" inputmode="tel" autocomplete="tel" value="${co.phone}" placeholder="050-0000000"></div></div>`;
-    if(co.mode==="delivery") h+=`<div class="f2"><div class="fld"><label for="st">רחוב</label><input id="st" autocomplete="address-line1" value="${co.street}"></div><div class="fld"><label for="nu">מספר בית</label><input id="nu" value="${co.num}"></div><div class="fld"><label for="fl">קומה</label><input id="fl" value="${co.floor}"></div><div class="fld"><label for="ap">דירה</label><input id="ap" value="${co.apt}"></div></div>`;
-    h+=`<div class="fld"><label for="cnotes">הערות לשליח</label><textarea id="cnotes" rows="2" placeholder="קוד לבניין, לדפוק חזק...">${co.notes}</textarea></div>
+    h+=`<div class="f2"><div class="fld"><label for="cn">שם מלא</label><input id="cn" autocomplete="name" maxlength="60" value="${esc(co.name)}"></div><div class="fld"><label for="cp">טלפון</label><input id="cp" type="tel" inputmode="tel" autocomplete="tel" maxlength="15" value="${esc(co.phone)}" placeholder="050-0000000"></div></div>`;
+    if(co.mode==="delivery") h+=`<div class="f2"><div class="fld"><label for="st">רחוב</label><input id="st" autocomplete="address-line1" maxlength="60" value="${esc(co.street)}"></div><div class="fld"><label for="nu">מספר בית</label><input id="nu" maxlength="8" value="${esc(co.num)}"></div><div class="fld"><label for="fl">קומה</label><input id="fl" maxlength="4" value="${esc(co.floor)}"></div><div class="fld"><label for="ap">דירה</label><input id="ap" maxlength="6" value="${esc(co.apt)}"></div></div>`;
+    h+=`<div class="fld"><label for="cnotes">הערות לשליח</label><textarea id="cnotes" rows="2" placeholder="קוד לבניין, לדפוק חזק..." maxlength="200">${esc(co.notes)}</textarea></div>
       <label class="consent"><input type="checkbox" id="consent" ${co.consent?'checked':''}><span>אני מסכים/ה שהשם, הטלפון והכתובת ישמשו לטיפול בהזמנה ולמשלוח בלבד, ומאשר/ת שקראתי את <a href="#privacy" data-legal="privacy">מדיניות הפרטיות</a>. (חובה)</span></label>
       <label class="consent"><input type="checkbox" id="marketing" ${co.marketing?'checked':''}><span>אשמח לקבל מבצעים והטבות בוואטסאפ או ב-SMS. אפשר להסיר בכל עת. (לא חובה)</span></label>
       <p class="err" id="err"></p><div style="display:flex;gap:10px;margin-top:8px"><button class="btn btn-ghost" data-back>חזרה</button><button class="btn btn-red" style="flex:1" data-next>המשך לתשלום</button></div>`;
@@ -838,7 +851,7 @@ function renderCo(){
     const f=fee();
     h+=`<div class="pay">${[["cash","מזומן","💵"],["card","אשראי בשליח","💳"],["bit","ביט","📱"],["online","אשראי אונליין","🔒"]].map(p=>`<button data-pay="${p[0]}" class="${co.pay===p[0]?'on':''}"><span aria-hidden="true">${p[2]}</span>${p[1]}</button>`).join("")}</div>
       ${co.pay==="online"?`<p class="note" style="margin-top:10px">בגרסה החיה ייפתח כאן דף סליקה מאובטח (Grow / Cardcom).</p>`:""}
-      <div class="sum">${cart.map(l=>`<div class="row"><span>${l.qty}× ${l.name}</span><span>${ils(l.unit*l.qty)}</span></div>`).join("")}
+      <div class="sum">${cart.map(l=>`<div class="row"><span>${l.qty}× ${esc(l.name)}</span><span>${ils(l.unit*l.qty)}</span></div>`).join("")}
         <div class="row"><span>${co.mode==='delivery'?'משלוח':'איסוף עצמי'}</span><span>${co.mode==='delivery'?(CONFIG.areas.find(a=>a.id===co.area).fee==null?'יאושר בטלפון':ils(f)):'חינם'}</span></div>
         <div class="row tot" style="margin-bottom:0"><span>סה״כ לתשלום</span><span>${ils(sub+f)}</span></div></div>
       <div style="display:flex;gap:10px"><button class="btn btn-ghost" data-back>חזרה</button><button class="btn btn-red" style="flex:1" id="place">שליחת ההזמנה · ${ils(sub+f)}</button></div>`;
@@ -848,8 +861,10 @@ function renderCo(){
       <p>${co.mode==='delivery'?'הפיצה בתנור. השליח יהיה אצלכם בעוד כ-30 דקות.':'הפיצה בתנור. תהיה מוכנה לאיסוף בעוד כ-20 דקות.'}</p>
       <div class="num">הזמנה #${co.orderNo}</div><br>
       ${CONFIG.demo
-        ? `<p class="note" style="margin-bottom:8px">כך ההזמנה נראית אצל הפיצריה בוואטסאפ:</p><pre class="wa-prev">${co.msg.replace(/</g,"&lt;")}</pre><p class="note" style="margin-top:12px">זו גרסת הדגמה, ההזמנה לא נשלחה.</p>`
-        : `<a class="btn btn-red" id="waLink" target="_blank" rel="noopener" href="${co.wa}">שליחת ההזמנה לפיצריה בוואטסאפ</a><p class="note" style="margin-top:14px">בגרסה החיה ההזמנה מגיעה לפיצריה אוטומטית, בלי הצעד הזה.</p>`}</div>`;
+        ? `<p class="note" style="margin-bottom:8px">כך ההזמנה נראית אצל הפיצריה בוואטסאפ:</p><pre class="wa-prev">${esc(co.msg)}</pre><p class="note" style="margin-top:12px">זו גרסת הדגמה, ההזמנה לא נשלחה.</p>`
+        : CONFIG.whatsapp
+          ? `<a class="btn btn-red" id="waLink" target="_blank" rel="noopener" href="${co.wa}">שליחת ההזמנה לפיצריה בוואטסאפ</a><p class="note" style="margin-top:14px">בגרסה החיה ההזמנה מגיעה לפיצריה אוטומטית, בלי הצעד הזה.</p>`
+          : `<a class="btn btn-red" href="tel:${CONFIG.phoneIntl}">להתקשר לאישור ההזמנה · ${CONFIG.phone}</a>`}</div>`;
   }
   $("#coPan").innerHTML=h;
 }
@@ -875,7 +890,7 @@ $("#coPan").addEventListener("click",e=>{
     co.orderNo = Math.floor(1000+Math.random()*9000);
     const f=fee(), lines=cart.map(l=>`• ${l.qty}× ${l.name} (${ils(l.unit*l.qty)})${l.mods.length?"\n   "+l.mods.join(", "):""}`).join("\n");
     const payName={cash:"מזומן",card:"אשראי בשליח",bit:"ביט",online:"אשראי אונליין"}[co.pay];
-    const msg=`🍕 הזמנה חדשה #${co.orderNo}\n\n${lines}\n\n${co.mode==="delivery"?`🛵 משלוח ל: ${co.street} ${co.num}${co.floor?", קומה "+co.floor:""}${co.apt?", דירה "+co.apt:""}, ${CONFIG.areas.find(a=>a.id===co.area).name}`:"🏃 איסוף עצמי"}\n⏰ ${co.when==="asap"?"כמה שיותר מהר":"לשעה "+co.time}\n👤 ${co.name} · ${co.phone}\n💳 ${payName}${co.notes?"\n📝 "+co.notes:""}\n📣 דיוור: ${co.marketing?"מאשר/ת":"לא מאשר/ת"}\n\nסה״כ: ${ils(subtotal()+f)}`;
+    const msg=`🍕 TickTook Pizza · הזמנה חדשה #${co.orderNo}\n\n${lines}\n\n${co.mode==="delivery"?`🛵 משלוח ל: ${co.street} ${co.num}${co.floor?", קומה "+co.floor:""}${co.apt?", דירה "+co.apt:""}, ${CONFIG.areas.find(a=>a.id===co.area).name}`:"🏃 איסוף עצמי"}\n⏰ ${co.when==="asap"?"כמה שיותר מהר":"לשעה "+co.time}\n👤 ${co.name} · ${co.phone}\n💳 ${payName}${co.notes?"\n📝 "+co.notes:""}\n📣 דיוור: ${co.marketing?"מאשר/ת":"לא מאשר/ת"}\n\nסה״כ: ${ils(subtotal()+f)}`;
     co.msg=msg;
     co.wa=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
     cart=[]; save(); renderCart(); co.step=4; renderCo();
@@ -894,6 +909,8 @@ document.addEventListener("click",e=>{
 $("#cartBtn").onclick=openCart; $("#mbarBtn").onclick=openCart;
 $("#ov").onclick=closeAll; $("#shVis").addEventListener("click",e=>{if(e.target.closest("#shClose"))closeAll()}); $("#drClose").onclick=closeAll;
 document.addEventListener("keydown",e=>{if(e.key!=="Escape")return; if($("#legal").classList.contains("on")) hide("#legal"); else closeAll();});
+$("#mapLoad").onclick=()=>{ $("#map").innerHTML=`<iframe title="מפה: סחלב 1 נהריה" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://maps.google.com/maps?q=32.99453,35.091935&z=17&output=embed"></iframe>`; };
+
 /* ===== Legal pages (privacy policy / accessibility) ===== */
 // טיוטה בלבד. לפני עלייה לאוויר: בדיקה של עורך דין, ועדכון שם העסק, כתובת המייל ורכז הנגישות.
 const LEGAL = {
@@ -905,7 +922,9 @@ const LEGAL = {
   <h4>חובה למסור מידע?</h4><p>אין חובה חוקית למסור את הפרטים, אבל בלי שם, טלפון וכתובת לא נוכל לטפל בהזמנה.</p>
   <h4>עם מי המידע משותף</h4><ul><li>שליחים שמבצעים את המשלוח.</li><li>ספקי שירות שמפעילים עבורנו את האתר, את הסליקה ואת קבלת ההזמנות (למשל אחסון, חברת סליקה ו-WhatsApp). חלקם עשויים לשמור מידע מחוץ לישראל.</li><li>רשויות, כשהחוק מחייב זאת.</li></ul><p>איננו מוכרים מידע אישי לאף גורם.</p>
   <h4>שמירת מידע ואבטחה</h4><p>אנחנו שומרים את פרטי ההזמנה רק כל עוד הם נחוצים למטרות שלמעלה או כנדרש בחוק, ונוקטים באמצעי אבטחה סבירים כדי להגן עליהם.</p>
-  <h4>עוגיות ואחסון בדפדפן</h4><p>האתר שומר את תוכן הסל בדפדפן שלכם בלבד, כדי שלא יימחק אם תרעננו את הדף. איננו משתמשים בעוגיות פרסום או מעקב.</p>
+  <h4>עוגיות ואחסון בדפדפן</h4><p>האתר שומר את תוכן הסל בדפדפן שלכם בלבד, כדי שלא יימחק אם תרעננו את הדף. איננו משתמשים בעוגיות פרסום או מעקב, והגופנים נטענים מהשרת שלנו ולא מצד שלישי.</p>
+  <h4>מפה</h4><p>מפת Google נטענת רק אם תלחצו על ״הצגת מפה״. בלחיצה, Google מקבלת מהדפדפן שלכם מידע טכני כמו כתובת IP, לפי מדיניות הפרטיות של Google.</p>
+  <h4>אבטחת מידע</h4><p>האתר מוגש בחיבור מוצפן (HTTPS). פרטי ההזמנה לא נשמרים בשרת של האתר, אלא נשלחים ישירות לפיצריה.</p>
   <h4>הזכויות שלכם</h4><p>אתם רשאים לבקש לעיין במידע שלכם, לתקן אותו או למחוק אותו, ולבטל הסכמה לדיוור. פנו אלינו בפרטים שלמעלה ונטפל בבקשה בהקדם.</p>
   <h4>שינויים במדיניות</h4><p>נעדכן את המדיניות מעת לעת. התאריך בראש הדף מציין את העדכון האחרון.</p>`,
  a11y: () => `<h3 id="lgTitle">הצהרת נגישות</h3>
@@ -944,7 +963,7 @@ function hero(){
   $("#heroPizza").innerHTML=`<img src="images/hero-pizza.webp" alt="" onerror="this.replaceWith(Object.assign(document.createElement('div'),{innerHTML:this.dataset.f}).firstChild)" data-f="${pizzaSVG({uid:'hero',tops:{bol:'r',oni:'w',tom:'l',hot:'r',corn:'l'}}).replace(/"/g,'&quot;')}">`;
   const tick=()=>{const n=new Date();$("#hand").style.transform=`rotate(${180+n.getSeconds()*6}deg)`};
   tick(); setInterval(tick,1000);
-  const words=["פיצה טרייה","כשר בד״ץ","בצק רך","קרום קריספי","זיוה מהתנור","כיכר המזרקה","נהריה"];
+  const words=["פיצה טרייה","כשר בד״ץ","בצק רך","קצה קריספי","זיוה מהתנור","כיכר המזרקה","נהריה"];
   const s=words.map(w=>`<span>${w}</span><span class="dot">●</span>`).join("");
   $("#marq").innerHTML=s+s+s+s;
 }
