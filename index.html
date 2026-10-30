@@ -120,6 +120,13 @@ h2{font-family:var(--serif);font-weight:900;font-size:clamp(36px,5vw,60px);line-
 .card .ph{position:relative;aspect-ratio:4/3;background:radial-gradient(circle at 50% 45%,#4a3324,#22160f 72%);overflow:hidden;display:grid;place-items:center}
 .card .ph svg{width:78%;height:auto;transition:transform .8s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 20px 26px rgba(0,0,0,.6))}
 .card .ph img{width:82%;height:82%;object-fit:contain;filter:drop-shadow(0 22px 24px rgba(0,0,0,.55));transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.pp{position:relative;width:82%;aspect-ratio:1;display:block}
+.pp img{width:100%!important;height:100%!important;object-fit:contain}
+.pp svg.tl{position:absolute;inset:0;width:100%!important;height:100%;filter:drop-shadow(0 3px 3px rgba(0,0,0,.35))!important;transform:none!important}
+.build .mini .pp{width:100%}
+.card:hover .ph .pp{transform:translateY(-8px) rotate(-4deg) scale(1.05)}
+.card .ph .pp{width:62%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card:hover .ph .pp img{transform:none}
 .card:hover .ph svg{transform:rotate(25deg) scale(1.04)}
 .card:hover .ph img{transform:translateY(-8px) rotate(-4deg) scale(1.05)}
 .tag{position:absolute;top:14px;inset-inline-start:14px;background:var(--cream);color:var(--ink);font-size:12px;font-weight:700;padding:5px 10px;border-radius:99px}
@@ -238,6 +245,7 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
 .li{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
 .li .th{width:64px;height:64px;border-radius:16px;background:#2a2320;display:grid;place-items:center;overflow:hidden}
 .li .th svg{width:56px;height:56px}
+.li .th .pp{width:56px}
 .li .th img{width:90%;height:90%;object-fit:contain}
 .li h5{font-size:16px}
 .li .md{font-size:13px;color:var(--muted);line-height:1.4;margin-top:2px}
@@ -656,7 +664,14 @@ function iconFor(item){
   if(id==="sambusak") return `<svg viewBox="0 0 200 160"><path d="M24 104a76 70 0 0 1 152 0z" fill="#e2a457"/><path d="M24 104h152" stroke="#b86d2c" stroke-width="6" stroke-linecap="round"/><g fill="#5f8a4a" opacity=".7"><circle cx="80" cy="70" r="2.5"/><circle cx="110" cy="60" r="2.5"/><circle cx="130" cy="84" r="2.5"/><circle cx="64" cy="90" r="2.5"/></g><path d="M40 104q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0q6-6 12 0" fill="none" stroke="#c47a32" stroke-width="2"/></svg>`;
   return pizzaSVG({uid:id});
 }
+// the margherita photo with real topping piles on top; whole thing falls back to the illustration
+function photoPizza(tops, uid){
+  const f=pizzaSVG({tops,uid}).replace(/"/g,'&quot;');
+  return `<div class="pp"><img src="images/margherita.webp" alt="" loading="lazy" onerror="this.parentNode.replaceWith(Object.assign(document.createElement('div'),{innerHTML:this.dataset.f}).firstChild)" data-f="${f}">${toppingLayer(tops)}</div>`;
+}
+const CUSTOM_TOPS={bol:"r",corn:"l",tom:"w"};
 function media(item, k){
+  if(item.builder) return photoPizza(CUSTOM_TOPS,"cu"+k);
   const v = visual(item,{k});
   // tries the real photo first; falls back to the illustration if the file is missing
   return `<img src="${v.img}" alt="${item.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{innerHTML:this.dataset.f}).firstChild)" data-f="${v.svg.replace(/"/g,'&quot;')}">`;
@@ -698,7 +713,7 @@ function builderPromo(){
     <div><h3>חצי זיתים, חצי תירס?<br>אין בעיה.</h3>
     <p>בוחרים גודל, מוסיפים תוספות על כל המגש או רק על חצי, ורואים את הפיצה נבנית מול העיניים.</p>
     <button class="btn btn-red" data-open="custom">לבנות פיצה</button></div>
-    <div class="mini">${pizzaSVG({tops:t,uid:"promo"})}</div></div>`;
+    <div class="mini">${photoPizza(t,"promo")}</div></div>`;
 }
 
 /* ===== Item sheet ===== */
@@ -809,7 +824,7 @@ $("#addBtn").onclick=()=>{
 
 /* ===== Cart ===== */
 const subtotal=()=>cart.reduce((s,l)=>s+l.unit*l.qty,0);
-function thumb(l){ const it=byId(l.id); return it&&it.builder?pizzaSVG({tops:l.tops,white:l.white,uid:"t"+String(l.key).slice(-5)}):media(it||{id:l.id,name:l.name},"t"); }
+function thumb(l){ const it=byId(l.id); return it&&it.builder?(l.white?pizzaSVG({tops:l.tops,white:l.white,uid:"t"+String(l.key).slice(-5)}):photoPizza(l.tops||{},"t"+String(l.key).slice(-5))):media(it||{id:l.id,name:l.name},"t"); }
 function renderCart(){
   const n=cart.reduce((s,l)=>s+l.qty,0), sub=subtotal();
   $("#cartN").textContent=n; $("#mbarTot").textContent=ils(sub);
