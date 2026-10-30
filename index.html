@@ -314,7 +314,19 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--gold)}
   .hero{padding:36px 0 60px}
   .lead{margin-inline:auto}
   .ctas,.badges{justify-content:center}
-  .stage{max-width:420px;order:-1}
+  .stage{max-width:340px;margin-top:6px}
+  .timer-chip{inset-inline-start:auto;left:0;right:0;margin-inline:auto;width:max-content;bottom:-14px}
+  .badges{gap:26px;margin-top:44px}
+}
+@media (max-width:600px){
+  .ctas{flex-direction:column;align-items:stretch;max-width:320px;margin-inline:auto;margin-top:28px}
+  .ctas > *{justify-content:center;width:100%}
+  .badges{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;border-block:1px solid var(--line);padding:16px 0}
+  .badge{flex-direction:column;gap:8px;text-align:center}
+  .badge + .badge{border-inline-start:1px solid var(--line)}
+  .badge .ic{width:38px;height:38px;border-radius:12px}
+  .badge b{font-size:15px}
+  .badge span{font-size:12px}
   .eyebrow{justify-content:center}
   .build{grid-template-columns:1fr;padding:30px;text-align:center}
   .build p{margin-inline:auto}
@@ -1013,8 +1025,7 @@ function motion(){
   const eta={v:45}; tl.to(eta,{v:30,duration:1.6,ease:"power2.out",onUpdate:()=>$("#eta").textContent=Math.round(eta.v)},1.1);
 
   // hero parallax while scrolling away
-  gsap.to(".hero-pizza",{rotate:90,y:80,scale:.92,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
-  gsap.to(".hero h1",{y:-60,opacity:.2,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
+  gsap.to(".hero-pizza",{rotate:60,ease:"none",scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
 
   // marquee leans with scroll velocity
   const mq=$("#marq"), skew=gsap.quickTo(mq,"skewX",{duration:.4,ease:"power3"});
